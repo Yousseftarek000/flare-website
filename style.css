@@ -1,20 +1,31 @@
 /* Import fonts: Montserrat for headings, Lato for body text */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Lato:wght@400;700&display=swap');
 
+/* Color Palette Variables (Based on your Flare Logo) */
+:root {
+    --flare-orange-red: #FF4E00; /* Main accent color */
+    --flare-gold: #FFD700;       /* Secondary accent */
+    --flare-dark-bg: #1A1A1A;    /* Very dark charcoal background */
+    --flare-medium-dark: #2A2A2A; /* Slightly lighter charcoal for sections */
+    --flare-light-text: #F0F0F0; /* Main body text color */
+    --flare-lighter-text: #CCCCCC; /* Subtler text */
+    --flare-border-light: #444444; /* Light border for elements */
+}
+
 /* Base Styles */
 body {
     margin: 0;
     font-family: 'Lato', sans-serif;
     line-height: 1.7;
-    color: #F0F0F0; /* Light gray text */
-    background-color: #0A192F; /* Deep dark blue background */
+    color: var(--flare-light-text);
+    background-color: var(--flare-dark-bg);
     scroll-behavior: smooth;
 }
 
 /* Headings */
 h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
-    color: #CCD6F6; /* Lightest blue for headings */
+    color: var(--flare-light-text);
     line-height: 1.2;
     margin-bottom: 0.5em;
 }
@@ -27,7 +38,7 @@ h1 {
 
 h2 {
     font-size: 2.5em;
-    color: #FFB347; /* Vibrant orange for main section titles */
+    color: var(--flare-orange-red); /* Main accent for section titles */
     text-align: center;
     margin-bottom: 1.5em;
     position: relative;
@@ -38,31 +49,30 @@ h2::after { /* Underline accent */
     display: block;
     width: 80px;
     height: 3px;
-    background-color: #FFB347;
+    background: linear-gradient(to right, var(--flare-orange-red), var(--flare-gold)); /* Gradient underline */
     margin: 15px auto 0;
     border-radius: 2px;
 }
 
 h3 {
     font-size: 1.8em;
-    color: #CCD6F6;
+    color: var(--flare-gold); /* Gold for sub-headings */
 }
 
 h4 {
     font-size: 1.3em;
-    color: #64FFDA; /* Bright teal for feature titles */
+    color: var(--flare-light-text);
 }
-
 
 /* Links */
 a {
-    color: #64FFDA; /* Bright teal for links */
+    color: var(--flare-gold);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #FFB347; /* Orange on hover */
+    color: var(--flare-orange-red);
     text-decoration: underline;
 }
 
@@ -77,20 +87,21 @@ a:hover {
     max-width: 900px;
     margin: 0 auto;
     padding: 60px 40px;
-    background-color: #112240; /* Slightly lighter dark blue for section backgrounds */
+    background-color: var(--flare-medium-dark);
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     margin-bottom: 40px;
 }
 
 /* Header */
 .site-header {
-    background-color: #0A192F;
+    background-color: var(--flare-dark-bg);
     padding: 30px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--flare-orange-red); /* Accent border */
 }
 
 .logo {
@@ -99,14 +110,14 @@ a:hover {
 }
 
 .logo img {
-    height: 60px; /* Adjust as needed for your logo size */
+    height: 60px;
     margin-right: 15px;
 }
 
 .logo h1 {
     font-size: 2em;
     margin: 0;
-    color: #FFB347;
+    color: var(--flare-orange-red);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -125,7 +136,7 @@ a:hover {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 1.05em;
-    color: #CCD6F6;
+    color: var(--flare-light-text);
     padding: 8px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -133,18 +144,18 @@ a:hover {
 
 .main-nav a:hover,
 .main-nav a:focus {
-    background-color: #112240;
-    color: #64FFDA;
+    background-color: var(--flare-orange-red);
+    color: var(--flare-dark-bg);
     text-decoration: none;
 }
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #0A192F, #112240);
+    background: linear-gradient(135deg, var(--flare-dark-bg), var(--flare-medium-dark));
     padding: 80px 20px;
     text-align: center;
-    color: #F0F0F0;
-    min-height: 60vh; /* Minimum height for hero section */
+    color: var(--flare-light-text);
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,13 +168,14 @@ a:hover {
 .hero-content h2 {
     font-size: 3.5em;
     margin-bottom: 20px;
-    color: #64FFDA;
+    color: var(--flare-gold); /* Gold for hero heading */
 }
 
 .hero-content p {
     font-size: 1.3em;
     margin-bottom: 40px;
     line-height: 1.5;
+    color: var(--flare-lighter-text);
 }
 
 /* Buttons */
@@ -178,26 +190,26 @@ a:hover {
 }
 
 .primary-button {
-    background-color: #64FFDA;
-    color: #0A192F;
+    background-color: var(--flare-orange-red);
+    color: var(--flare-dark-bg);
 }
 
 .primary-button:hover {
-    background-color: #52D8BB;
-    color: #0A192F;
+    background-color: var(--flare-gold);
+    color: var(--flare-dark-bg);
     transform: translateY(-3px);
     text-decoration: none;
 }
 
 .secondary-button {
     background-color: transparent;
-    color: #FFB347;
-    border: 2px solid #FFB347;
+    color: var(--flare-gold);
+    border: 2px solid var(--flare-gold);
 }
 
 .secondary-button:hover {
-    background-color: #FFB347;
-    color: #0A192F;
+    background-color: var(--flare-gold);
+    color: var(--flare-dark-bg);
     transform: translateY(-3px);
     text-decoration: none;
 }
@@ -208,7 +220,7 @@ a:hover {
     text-align: center;
 }
 
-.feature-grid {
+.feature-grid, .service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
@@ -216,12 +228,12 @@ a:hover {
     text-align: left;
 }
 
-.feature-item {
-    background-color: #0B2142; /* Slightly darker blue for feature cards */
+.feature-item, .service-item {
+    background-color: var(--flare-medium-dark);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid #1A3C64;
+    border: 1px solid var(--flare-border-light);
 }
 
 .feature-item h4 {
@@ -229,16 +241,39 @@ a:hover {
     margin-bottom: 15px;
 }
 
+/* Services Page Specifics */
+.service-item h3 {
+    color: var(--flare-gold);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.service-item ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.service-item ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    color: var(--flare-lighter-text);
+}
+
+.service-item ul li:last-child {
+    border-bottom: none;
+}
+
 /* Call to Action Section */
 .cta-section {
     padding: 80px 20px;
     text-align: center;
     background-color: #000000; /* Pure black for a strong contrast CTA */
-    color: #F0F0F0;
+    color: var(--flare-light-text);
 }
 
 .cta-section h3 {
-    color: #FFB347;
+    color: var(--flare-orange-red); /* Orange-red for CTA heading */
 }
 
 .cta-section p {
@@ -246,15 +281,38 @@ a:hover {
     margin-bottom: 30px;
 }
 
+/* Contact Details */
+.contact-details p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.contact-details a {
+    font-weight: bold;
+    color: var(--flare-orange-red);
+}
+
+.instagram-embed {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: var(--flare-dark-bg);
+    border-radius: 8px;
+    border: 1px solid var(--flare-border-light);
+}
+
+.instagram-embed h3 {
+    color: var(--flare-gold);
+}
+
 
 /* Footer */
 .site-footer {
     text-align: center;
     padding: 30px 20px;
-    background-color: #0A192F;
-    color: #8892B0;
+    background-color: var(--flare-dark-bg);
+    color: var(--flare-lighter-text);
     font-size: 0.9em;
-    border-top: 1px solid #112240;
+    border-top: 2px solid var(--flare-orange-red);
 }
 
 /* Responsive Adjustments */
@@ -287,43 +345,7 @@ a:hover {
     .section-content {
         padding: 40px 25px;
     }
-}
-/* Services Page Specifics */
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.service-item {
-    background-color: #0B2142;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid #1A3C64;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-item h3 {
-    color: #FFB347;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.service-item ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-.service-item ul li {
-    padding: 8px 0;
-    border-bottom: 1px dashed rgba(100, 255, 218, 0.2); /* Teal dashed line */
-    color: #CCD6F6;
-}
-
-.service-item ul li:last-child {
-    border-bottom: none;
+    .feature-grid, .service-grid {
+        grid-template-columns: 1fr;
+    }
 }
